@@ -32,8 +32,8 @@ dtoverlay=pciex1-compat-pi5,no-mip
 ```
 3. 风扇配置
 
-[rpi5 emc2301 i2c风扇配置](overlay/rpi5)
+[rpi5 emc2301 i2c风扇配置](overlays/rpi5)
 ## ROCK5C
 1. 风扇配置
 
-[rock5c emc2301 i2c风扇配置](overlay/rock5c)
+[rock5c emc2301 i2c风扇配置](overlays/rock5c)
