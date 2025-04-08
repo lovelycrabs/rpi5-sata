@@ -18,7 +18,7 @@ sudo cp i2c-fan-lm75.dtbo /boot/firmware/overlays
 
 
 ```shell
-必须确保开启i2c dtparam=i2c_arm=on
+dtparam=i2c_arm=on
 dtoverlay=i2c-fan-lm75
 ```
 必须确保开启i2c dtparam=i2c_arm=on
