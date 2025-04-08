@@ -1,0 +1,70 @@
+/dts-v1/;
+/plugin/;
+/ {
+        compatible = "brcm,bcm2835";
+
+	fragment@0 {
+		target = <&i2c1>;
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			status = "okay";
+			emc2301: emc2301@2f {
+				compatible = "microchip,emc2301";
+				reg = <0x2f>;
+                		#cooling-cells = <2>;
+
+			};
+			lm75b: lm75b@48 {
+				compatible = "national,lm75b";
+				reg = <0x48>;
+				#thermal-sensor-cells = <0>;
+			};
+		};
+	};
+	fragment@1 {
+		target-path = "/thermal-zones";
+		__overlay__ {
+			sata_thermal: sata-thermal {
+				polling-delay-passive = <1000>;
+				polling-delay = <1000>;
+				thermal-sensors = <&lm75b>;
+				sensor_trips: trips {
+					temp_crit: temp-crit {
+						temperature = <65000>;
+						hysteresis = <0>;
+						type = "critical";
+					};
+					temp_hot: temp-hot {
+						temperature = <40000>;
+						hysteresis = <3000>;
+						type = "active";
+					};
+
+					temp_vhot: temp-vhot {
+						temperature = <55000>;
+						hysteresis = <5000>;
+						type = "active";
+					};
+				};
+
+				cooling_maps: cooling-maps {
+					hot {
+						trip = <&temp_hot>;
+						cooling-device = <&emc2301 2 6>;
+					};
+
+
+					vhot {
+						trip = <&temp_vhot>;
+						cooling-device = <&emc2301 7 9>;
+					};
+					melt {
+						trip = <&temp_crit>;
+						cooling-device = <&emc2301 10 10>;
+					};
+				};
+			};
+		};
+	};
+};
