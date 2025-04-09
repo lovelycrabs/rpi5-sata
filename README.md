@@ -1,5 +1,6 @@
 # RPI5、ROCK5C SATA HAT Configuration
 
+![1](image/rpi5_sata_hat_1.jpg)
 ## 树莓派
 1. 开启PCIE
 
