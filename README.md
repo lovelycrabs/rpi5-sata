@@ -37,3 +37,6 @@ dtoverlay=pciex1-compat-pi5,no-mip
 1. 风扇配置
 
 [rock5c emc2301 i2c风扇配置](overlays/rock5c)
+
+# 购买(buy)
+[咸鱼-树莓派5、rock5c硬盘扩展板4xsata，带sata供电](https://www.goofish.com/item?spm=a21ybx.search.searchFeedList.1.168640723tHLO0&id=903375047200&categoryId=126856551)
